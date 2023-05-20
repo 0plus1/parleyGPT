@@ -1,4 +1,4 @@
-[![MIT](https://img.shields.io/github/license/0plus1/parleyGPT)
+![MIT](https://img.shields.io/github/license/0plus1/parleyGPT)
 
 # Parley GPT
 A node based chatGPT argument engine between two prompts.
@@ -13,7 +13,9 @@ The idea behind this project is to provide two diverging prompts, instance them 
 In the examples folders there are some example dialogues to showcase the potential.
 
 [John Wick and Gandalf](./examples/wick-and-gandalf.md)
+
 [Rocky Balboa and Jar Jar Binks](./examples/rocky-and-binks.md)
+
 [A drunk and a dream interpreter](./examples/drunken-dreams.md)
 
 If you created any fun dialogue please feel free to share, would love to see what you come up!
