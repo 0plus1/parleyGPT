@@ -1,19 +1,15 @@
-import dotenv from 'dotenv-safe';
 import { ChatGPTAPI, conversation } from './chatGPT/index.ts';
-dotenv.config();
+import {
+  OPENAI_API_KEY,
+  DEBUG,
+  ITERATIONS,
+  INTERLOCUTOR_ONE_NAME,
+  INTERLOCUTOR_TWO_NAME,
+  INTERLOCUTOR_ONE_PROMPT,
+  INTERLOCUTOR_TWO_PROMPT,
+  TOPIC,
+} from './constants.ts';
 
-console.log('Starting bot...');
-console.log('ENV:', process.env.NODE_ENV);
-console.log('OPENAI_KEY:', process.env.OPENAI_API_KEY.slice(0, 5) + '...');
-console.log('ITERATIONS:', process.env.ITERATIONS);
-console.log('DEBUG:', process.env.DEBUG);
-
-const OPENAI_API_KEY: string = process.env.OPENAI_API_KEY;
-// Iterations are 1 less than the number of iterations specified in the .env file
-// This is because we need to take into account the initial conversation
-const ITERATIONS: number = parseInt(process.env.ITERATIONS) - 1;
-// Is in debug mode?
-const DEBUG: boolean = (process.env.DEBUG === 'true');
 const interlocutorOne = ChatGPTAPI(OPENAI_API_KEY);
 const interlocutorTwo = ChatGPTAPI(OPENAI_API_KEY);
 // Define IDs
@@ -41,19 +37,22 @@ const printLine = (name: string, text: string, conversationId: string) => {
   }
 }
 
+console.log('Starting parley...');
+console.log('Topic:', TOPIC);
+
 const recordLastTextResponseForInterlocutorOne = (text: string) => {
-  printLine(process.env.INTERLOCUTOR_ONE_NAME, text, interlocutorOneConversationId);
+  printLine(INTERLOCUTOR_ONE_NAME, text, interlocutorOneConversationId);
   lastTextResponse = text;
 }
 const recordLastTextResponseForInterlocutorTwo = (text: string) => {
-  printLine(process.env.INTERLOCUTOR_TWO_NAME, text, interlocutorTwoConversationId);
+  printLine(INTERLOCUTOR_TWO_NAME, text, interlocutorTwoConversationId);
   lastTextResponse = text;
 }
 // Start conversation
-recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${process.env.INTERLOCUTOR_ONE_PROMPT} ${process.env.TOPIC}`) );
-recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${process.env.INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
+recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${INTERLOCUTOR_ONE_PROMPT} ${TOPIC}`) );
+recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
 
 for (let i = 0; i < ITERATIONS; i++) {
-  recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${process.env.INTERLOCUTOR_ONE_PROMPT} ${lastTextResponse}`) );
-  recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${process.env.INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
+  recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${INTERLOCUTOR_ONE_PROMPT} ${lastTextResponse}`) );
+  recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
 }
