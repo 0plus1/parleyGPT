@@ -1,0 +1,28 @@
+{
+  "name": "parleyGPT",
+  "version": "0.1.0",
+  "description": "A node based chatGPT argument engine between two prompts.",
+  "main": "index.js",
+  "repository": "https://github.com/0plus1/parleyGPT",
+  "author": "Davide <davide.0plus1@protonmail.com>",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "chatgpt": "^5.2.4",
+    "dotenv-safe": "^8.2.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/dotenv-safe": "^8.1.2",
+    "@types/node": "^20.2.1",
+    "typescript": "^5.2.0-dev.20230519"
+  }
+}
