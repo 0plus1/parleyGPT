@@ -53,6 +53,6 @@ recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${I
 recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
 
 for (let i = 0; i < ITERATIONS; i++) {
-  recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${INTERLOCUTOR_ONE_PROMPT} ${lastTextResponse}`) );
-  recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${INTERLOCUTOR_TWO_PROMPT} ${lastTextResponse}`) );
+  recordLastTextResponseForInterlocutorOne( await iterationForInterlocutorOne(`${lastTextResponse}`) );
+  recordLastTextResponseForInterlocutorTwo( await iterationForInterlocutorTwo(`${lastTextResponse}`) );
 }
