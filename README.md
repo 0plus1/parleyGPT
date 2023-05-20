@@ -27,15 +27,11 @@ If you created any fun dialogue please feel free to share by opening a PR, would
 
 ## Install
 
-```bash
-yarn add chatgpt
-```
+Clone the repo then run `yarn install`
 
 Requires `node >= 18`, to manage node version consider using [nvm](https://github.com/nvm-sh/nvm)
 
 ### Usage
-
-Clone the repo then run `yarn install`
 
 Create a local .env file with all the required vars:
 
