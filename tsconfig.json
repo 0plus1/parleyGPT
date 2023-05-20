@@ -14,7 +14,8 @@
     "baseUrl": ".",
     "outDir": "build",
     "noEmit": true,
+    "allowImportingTsExtensions": true,
   },
   "exclude": ["node_modules", "build"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "src/quick.js"]
 }
