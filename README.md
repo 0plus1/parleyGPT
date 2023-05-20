@@ -18,6 +18,8 @@ In the examples folders there are some example dialogues to showcase the potenti
 
 [A drunk and a dream interpreter](./examples/drunken-dreams.md)
 
+[Hello kitty and Voldemort](./examples/hellokitty-and-voldemort.md)
+
 After running several tests, I found that the results can be very different, even with the exact same parameters.
 With fictional characters, after running more than 6 iteration, the dialogue starts to become stale.
 
