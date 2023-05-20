@@ -18,7 +18,10 @@ In the examples folders there are some example dialogues to showcase the potenti
 
 [A drunk and a dream interpreter](./examples/drunken-dreams.md)
 
-If you created any fun dialogue please feel free to share, would love to see what you come up!
+After running several tests, I found that the results can be very different, even with the exact same parameters.
+With fictional characters, after running more than 6 iteration, the dialogue starts to become stale.
+
+If you created any fun dialogue please feel free to share by opening a PR, would love to see what you come up!
 
 ## Install
 
